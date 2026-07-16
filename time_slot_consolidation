@@ -14,5 +14,6 @@ for j in breaks:
         merged.append(j)
     else:
         merged[-1][1] = max(merged[-1][1], j[1])
+
 for start, end in merged:
     print(start, end)
