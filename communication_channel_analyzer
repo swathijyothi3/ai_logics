@@ -1,0 +1,14 @@
+s = input("Enter a string:")
+last_seen = {}
+
+start = 0
+max_length = 0
+for e in range(len(s)):
+    char = s[e]
+    if char in last_seen and last_seen[char] >= start:
+        start = last_seen[char] + 1
+    last_seen[char] = e
+    current_length = e - start + 1
+    if current_length > max_length:
+        max_length = current_length
+print(max_length)
