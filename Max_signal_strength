@@ -1,0 +1,14 @@
+n = int(input("Enter Signal Reading:"))
+signal_readings = list(map(int, input().split()))
+
+k = int(input("Enter Window Size:"))
+
+current_sum = sum(signal_readings[:k])
+max_sum = current_sum
+
+for i in range(k, n):
+    current_sum = current_sum - signal_readings[i - k] + signal_readings[i]
+
+    if current_sum > max_sum:
+        max_sum = current_sum
+print(max_sum)
