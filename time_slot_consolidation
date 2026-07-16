@@ -1,0 +1,18 @@
+num = int(input("Enter a number:"))
+breaks = []
+
+for i in range(num):
+    start, end = map(int, input().split())
+    breaks.append([start, end])
+
+breaks.sort(key=lambda interval: interval[0])
+
+merged = []
+
+for j in breaks:
+    if not merged or merged[-1][1] < j[0]:
+        merged.append(j)
+    else:
+        merged[-1][1] = max(merged[-1][1], j[1])
+for start, end in merged:
+    print(start, end)
